@@ -1,0 +1,160 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#eef2ff,#dbeafe);
+}
+
+.container{
+    text-align:center;
+}
+
+.container h1{
+    font-size:2.7rem;
+    margin-bottom:10px;
+    color:#222;
+}
+
+.container p{
+    color:#666;
+    margin-bottom:45px;
+}
+
+.scene{
+    width:220px;
+    height:220px;
+    perspective:900px;
+    margin:auto;
+}
+
+.cube{
+    width:100%;
+    height:100%;
+    position:relative;
+    transform-style:preserve-3d;
+    animation:rotateCube 12s linear infinite;
+}
+
+.face{
+    position:absolute;
+    width:220px;
+    height:220px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:18px;
+    backdrop-filter:blur(8px);
+    background:rgba(255,255,255,.7);
+    border:1px solid rgba(255,255,255,.5);
+    box-shadow:0 12px 30px rgba(0,0,0,.15);
+    transition:.4s;
+}
+
+.face a{
+    text-decoration:none;
+    font-size:1.3rem;
+    color:#111;
+    font-weight:600;
+}
+
+.face:hover{
+    transform:scale(1.08);
+}
+
+.front{
+    transform:translateZ(110px);
+}
+
+.back{
+    transform:rotateY(180deg) translateZ(110px);
+}
+
+.right{
+    transform:rotateY(90deg) translateZ(110px);
+}
+
+.left{
+    transform:rotateY(-90deg) translateZ(110px);
+}
+
+.top{
+    transform:rotateX(90deg) translateZ(110px);
+}
+
+.bottom{
+    transform:rotateX(-90deg) translateZ(110px);
+}
+
+@keyframes rotateCube{
+
+    0%{
+        transform:rotateX(-20deg) rotateY(0deg);
+    }
+
+    25%{
+        transform:rotateX(-20deg) rotateY(90deg);
+    }
+
+    50%{
+        transform:rotateX(-20deg) rotateY(180deg);
+    }
+
+    75%{
+        transform:rotateX(-20deg) rotateY(270deg);
+    }
+
+    100%{
+        transform:rotateX(-20deg) rotateY(360deg);
+    }
+
+}
+
+@media(max-width:600px){
+
+.scene{
+    width:180px;
+    height:180px;
+}
+
+.face{
+    width:180px;
+    height:180px;
+}
+
+.front{
+    transform:translateZ(90px);
+}
+
+.back{
+    transform:rotateY(180deg) translateZ(90px);
+}
+
+.right{
+    transform:rotateY(90deg) translateZ(90px);
+}
+
+.left{
+    transform:rotateY(-90deg) translateZ(90px);
+}
+
+.top{
+    transform:rotateX(90deg) translateZ(90px);
+}
+
+.bottom{
+    transform:rotateX(-90deg) translateZ(90px);
+}
+
+.container h1{
+    font-size:2rem;
+}
+
+}
